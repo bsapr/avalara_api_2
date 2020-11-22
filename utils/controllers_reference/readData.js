@@ -1,4 +1,3 @@
-var port = 8000;
 const fs = require("fs");
 
 console.log("in read_date.js controller ");
@@ -14,7 +13,6 @@ module.exports.read_data = function (req, res) {
 
   fs.createReadStream(filepath)
     .on("error", () => {
-      // handle error
       return res.json(404, {
         message: "Internal server error msg",
       });
@@ -32,7 +30,6 @@ module.exports.read_data = function (req, res) {
     })
 
     .on("end", () => {
-      //handle end of CSV
       if (read_flag == 0) {
         return res.json(404, {
           message: "No such key exists in data storage",

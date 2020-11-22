@@ -5,11 +5,11 @@ const router = express.Router();
 
 const writeAPI = require("../../../../controllers/api/v2/" +
   port +
-  "/write_data");
+  "/writeData");
 
 console.log("In " + port + "insert router ");
 
-// doctor can check reports on status basis after JWT is verified
+//Putting key value in file systems
 router.post("/", writeAPI.write_data);
 
 module.exports = router;
